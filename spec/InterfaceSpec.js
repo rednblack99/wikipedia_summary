@@ -5,9 +5,12 @@ describe("CelebSummary", function() {
     celeb_summary = new CelebSummary();
   });
 
-  it("User can enter a name and API will return page title", function() {
-    expect(celeb_summary.see_info("Avril Lavigne")).toBeUndefined()
+  it("see_info will return a promise object", function() {
+    expect(celeb_summary.see_info("Avril Lavigne")).toEqual('[object Promise]')
   });
 
+  it("see_info will throw error if argument is undefined", function() {
+    expect( function(){ celeb_summary.see_info("") } ).toThrow(new Error("Please enter a celebrity name to search for"));
+  });
 
 });
