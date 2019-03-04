@@ -5,8 +5,8 @@ describe("Feature", function() {
     celeb_summary = new CelebSummary();
   });
 
-  it("should return hello, world", function() {
-    expect(celeb_summary.say_hello()).toEqual("Hello world");
+  it("User can enter a name and see name entered", function() {
+    expect(celeb_summary.see_info("Joe Bloggs")).toEqual("Name: Joe Bloggs");
   });
 
 });
