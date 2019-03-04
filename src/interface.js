@@ -4,19 +4,20 @@ class CelebSummary {
   }
 
   see_info(name) {
-    return `Name: ${name}`
-  }
-
-  make_request() {
-    fetch('https://en.wikipedia.org/w/api.php?format=json&action=parse&page=Seth_Rogen&origin=*', {
-    })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      text = myJson.
-      console.log(JSON.stringify(myJson));
-    });
+    make_request(name)
   }
 
 } 
+
+function make_request(name) {
+  fetch(`https://en.wikipedia.org/w/api.php?format=json&action=parse&page=Seth%20Rogen&origin=*`, {
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(response) {
+    let title = JSON.stringify(response.parse.title)
+    console.log(`Title: ${title.replace(/\"/g, "")}`)
+  });
+}
+
