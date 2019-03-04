@@ -13,9 +13,11 @@ describe("Feature", function() {
   });
 
   it("User can enter any celebrity name and API will return page title", function() {
-    // spyOn(console, 'log');
     expect(celeb_summary.see_info("Avril Lavigne")).toBeUndefined()
-    // expect(console.log).toHaveBeenCalled();
+  });
+
+  it("Throws an error if no name is entered", function() {
+    expect( function(){ celeb_summary.see_info("") } ).toThrow(new Error("Please enter a celebrity name to search for"));
   });
 
 });
