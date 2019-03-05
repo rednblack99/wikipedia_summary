@@ -18,13 +18,14 @@ Y88b.   Y8b.    888Y8b.    888 d88P888    888Y88b. Y88b 888
 
 This project allows users to enter a celebrity name and receive a short summary of information about them from Wikipedia.
 
-Currently it only returns the title of the requested page. Please see the 'next steps' section for details of upcoming features.
+Currently it only returns the title of the requested page and the full HTML body of the requested page. Please see the 'next steps' section for details of upcoming features.
 
 ## Tech Stack
 
 * Media Commons API
 * JavaScript
 * Jasmine
+* DOMParse
 
 ## Installation
 
@@ -43,8 +44,8 @@ $ celeb_summary = new CelebSummary
 $ celeb_summary.see_info("CELEBRITY NAME")
 ```
 
-The chosen celebrities summary will be displayed in your console.
+The chosen celebrities title will be displayed in your console along with the body HTML of their page.
 
 ## Next Steps
 
-Currently the API returns all the required information but the code doesn't display it properly. I need to add a method which will sort through the returned HTML and output birth, death (if relevant), spouse (if relevant) and the main summary from the article.
+Currently the API returns all the required information and the JSON response is parsed into HTML, but I've yet to correctly isolate the required information from the HTML in order to display it to the console. I need to create a 'format' class that does this and returns the correct information to be logged to the console: birth, death (if relevant), spouse (if relevant) and the main summary from the article.
