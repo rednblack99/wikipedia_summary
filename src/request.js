@@ -7,7 +7,10 @@ class Request {
     })
     .then(function(response) {
       const title = JSON.stringify(response.parse.title)
+      const body = JSON.stringify(response.parse.text)
       const formatted_title = title.replace(/\"/g, "")
+      let html = new ParseBody(body)
+      html.parse_page()
       console.log(`Title: ${formatted_title}`)
     });
     return promise.toString()
